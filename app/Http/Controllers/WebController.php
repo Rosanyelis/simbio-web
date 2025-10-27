@@ -5,10 +5,11 @@ namespace App\Http\Controllers;
 use App\Models\Line;
 use App\Models\Product;
 use App\Models\Category;
+use App\Models\WorkTeam;
+use App\Models\SuccessStory;
 use Illuminate\Http\Request;
 use App\Models\RelatedProduct;
 use Illuminate\Support\Facades\Mail;
-use App\Models\WorkTeam;
 
 class WebController extends Controller
 {
@@ -147,7 +148,8 @@ class WebController extends Controller
 
     public function tecnology()
     {
-        return view('tecnology');
+        $successStories = SuccessStory::all();
+        return view('tecnology', compact('successStories'));
     }
 
     public function contact()

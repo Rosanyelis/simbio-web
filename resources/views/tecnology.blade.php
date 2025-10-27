@@ -1,4 +1,23 @@
 @extends('layout.app')
+@section('styles')
+<style>
+    /* Centrar los casos de éxito */
+    .researchSlider.owl-carousel {
+        display: flex !important;
+        justify-content: center !important;
+        align-items: center !important;
+    }
+    
+    .researchSlider .owl-stage-outer {
+        margin: 0 auto;
+    }
+    
+    .researchSlider .owl-stage {
+        display: flex !important;
+        justify-content: center !important;
+    }
+</style>
+@endsection
 @section('content')
     <!-- Page Banner Start -->
         <section class="pageBanner2">
@@ -192,53 +211,31 @@
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-lg-12 noPadding">
+                    <div class="col-lg-12 ">
                         <div class="researchSlider owl-carousel">
+                            @foreach ($successStories as $successStory)
                             <div class="researchItem">
-                                <img src="{{ asset('web/images/research/5.1.png') }}" alt="LabFlox">
+                                <img src="{{ asset('storage/' . $successStory->url_image) }}" alt="{{ $successStory->name }}">
                                 <div class="riContent">
                                     <div class="ricMeta">
-                                        <a href="javascript:void(0);">Caso mandarina W. Murcott</a>
+                                        @if ($successStory->url_file)
+                                        <a href="{{ asset('storage/' . $successStory->url_file) }}"
+                                        target="_blank">{{ $successStory->subtitle }}</a>
+                                        @else
+                                        <a href="javascript:void(0);" style="pointer-events: none;">{{ $successStory->subtitle }}</a>
+                                        @endif
                                     </div>
                                     <h3 class="heebo">
-                                        <a href="javascript:void(0);" style="pointer-events: none;">89% mayor reducción frente a Abamectina</a>
+                                        @if ($successStory->url_file)
+                                        <a href="{{ asset('storage/' . $successStory->url_file) ? asset('storage/' . $successStory->url_file) : 'javascript:void(0);' }}"
+                                        target="_blank">{{ $successStory->name }}</a>
+                                        @else
+                                        <a href="javascript:void(0);" style="pointer-events: none;">{{ $successStory->name }}</a>
+                                        @endif
                                     </h3>
                                 </div>
                             </div>
-                            <div class="researchItem">
-                                <img src="{{ asset('web/images/research/5.2.png') }}" alt="LabFlox">
-                                <div class="riContent">
-                                    <div class="ricMeta">
-                                        <a href="javascript:void(0);">Caso La Calera (Palto)</a>
-                                    </div>
-                                    <h3 class="heebo">
-                                        <a href="javascript:void(0);" style="pointer-events: none;">Reducción del 37% en la absorción de cadmio</a>
-                                    </h3>
-                                </div>
-                            </div>
-                            <div class="researchItem">
-                                <img src="{{ asset('web/images/research/5.3.png') }}" alt="LabFlox">
-                                <div class="riContent">
-                                    <div class="ricMeta">
-                                        <a href="javascript:void(0);" >Caso Interoc (semilla maíz)</a>
-                                    </div>
-                                    <h3 class="heebo">
-                                        <a href="javascript:void(0);" style="pointer-events: none;">+1 T de rendimiento en cada variedad</a>
-                                    </h3>
-                                </div>
-                            </div>
-                            <div class="researchItem">
-                                <img src="{{ asset('web/images/research/5.4.png') }}" alt="LabFlox">
-                                <div class="riContent">
-                                    <div class="ricMeta">
-                                        <a href="javascript:void(0);">Caso Serfi</a>
-                                    </div>
-                                    <h3 class="heebo">
-                                        <a href="javascript:void(0);" style="pointer-events: none;">02 fertilizantes: ECOROOT, NUTRISOIL</a>
-                                    </h3>
-                                </div>
-                            </div>
-                            
+                            @endforeach
                         </div>
                     </div>
                 </div>
@@ -252,4 +249,50 @@
             </div>
         </section>
         <!-- Research Section End -->
+@endsection
+
+@section('scripts')
+
+<script>
+    // Deshabilitar el autoplay del slider de casos de éxito manteniendo el diseño
+    $(document).ready(function() {
+        // Esperar a que el tema.js inicialice el slider
+        setTimeout(function() {
+            if ($('.researchSlider').hasClass('owl-loaded')) {
+                // Destruir el owl carousel existente
+                $('.researchSlider').trigger('destroy.owl.carousel');
+                
+                // Reinicializar sin autoplay pero con el mismo diseño
+                $('.researchSlider').owlCarousel({
+                    margin: 28,
+                    loop: false,
+                    autoplay: false,
+                    nav: false,
+                    dots: false,
+                    mouseDrag: false,
+                    touchDrag: false,
+                    pullDrag: false,
+                    responsiveClass: true,
+                    responsive: {
+                        0: {
+                            items: 1
+                        },
+                        768: {
+                            items: 4
+                        },
+                        1023: {
+                            items: 4
+                        },
+                        1200: {
+                            items: 4
+                        },
+                        1600: {
+                            items: 4
+                        }
+                    }
+                });
+            }
+        }, 100);
+    });
+</script>
 @endsection
