@@ -6,9 +6,7 @@
         <div class="row">
             <div class="col-md-9 col-lg-7 col-xl-6">
                 <div class="pageBannerContent">
-                    <div class="ship">
-                        Nosotros
-                    </div>
+                    
                     <h2>SIMBIO: <br> Especialistas en <br> tecnología microbiana</h2>
                 </div>
             </div>

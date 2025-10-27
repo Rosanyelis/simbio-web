@@ -6,9 +6,7 @@
                 <div class="row">
                     <div class="col-md-9 col-lg-7 col-xl-6">
                         <div class="pageBannerContent">
-                            <div class="ship">
-                            Nuestro servicio
-                            </div>
+                            
                             <h2>Hecho a la medida: <br> Cultivos diferentes, <br> soluciones diferentes</h2>
                         </div>
                     </div>

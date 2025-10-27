@@ -28,35 +28,7 @@
                 <ul>
                     <li data-index="rs-3046" data-transition="random-premium" data-slotamount="default" data-hideafterloop="0" data-hideslideonmobile="off"  data-easein="Power3.easeInOut" data-easeout="Power3.easeInOut" data-masterspeed="1000"  data-thumb=""  data-rotate="0"  data-saveperformance="off"  data-title="" data-param1="" data-param2="" data-param3="" data-param4="" data-param5="" data-param6="" data-param7="" data-param8="" data-param9="" data-param10="" data-description="">
                         <img src="{{ asset('web/images/slider/slider1.png') }}"  alt=""  data-bgposition="left center" data-bgfit="cover" data-bgrepeat="no-repeat" data-bgparallax="10" class="rev-slidebg" data-no-retina>
-                        <div class="tp-caption tp-resizeme heebo" 
-                            data-x="['left','left','center','center']" 
-                            data-hoffset="['0','0','0','0']" 
-                            
-                            data-y="['middle','middle','middle','middle']" 
-                            data-voffset="['-168','-168','-168','-138']" 
-
-                            data-fontsize="['18','18','18','18']"
-                            data-fontweight="['400','400','400','400']"
-                            data-lineheight="['40','40','40','40']"
-                            data-width="none"
-                            data-height="none"
-                            data-whitespace="nowrap"
-                            data-color="['#FFFFFF','#FFFFFF','#FFFFFF','#FFFFFF']"
-
-                            data-type="text" 
-                            data-responsive_offset="on" 
-
-                            data-frames='[{"delay":1200,"speed":400,"frame":"0","from":"x:-50px;opacity:0;","to":"o:1;","ease":"power3.inOut"},{"delay":"wait","speed":300,"frame":"999","to":"auto:auto;","ease":"power3.inOut"}]'
-
-                            data-textAlign="['center','center','center','center']"
-                            data-paddingtop="['0','0','0','0']"
-                            data-paddingright="['21','21','21','21']"
-                            data-paddingbottom="['0','0','0','0']"
-                            data-paddingleft="['21','21','21','21']"
-                            data-marginleft="['0','0','0','0']"
-
-                            style="background-color: #a4cc0c; letter-spacing: 1px;border-radius: 5px;"
-                            >Innovación sostenible</div>
+                        
 
 
                         <div class="tp-caption ws_nowrap heebo"
@@ -111,35 +83,7 @@
                     </li>
                     <li data-index="rs-3047" data-transition="random-premium" data-slotamount="default" data-hideafterloop="0" data-hideslideonmobile="off"  data-easein="Power3.easeInOut" data-easeout="Power3.easeInOut" data-masterspeed="1000"  data-thumb=""  data-rotate="0"  data-saveperformance="off"  data-title="" data-param1="" data-param2="" data-param3="" data-param4="" data-param5="" data-param6="" data-param7="" data-param8="" data-param9="" data-param10="" data-description="">
                         <img src="{{ asset('web/images/slider/slider2.png') }}"  alt=""  data-bgposition="left center" data-bgfit="cover" data-bgrepeat="no-repeat" data-bgparallax="10" class="rev-slidebg" data-no-retina>
-                        <div class="tp-caption tp-resizeme heebo" 
-                            data-x="['left','left','center','center']" 
-                            data-hoffset="['0','0','0','0']" 
-                            
-                            data-y="['middle','middle','middle','middle']" 
-                            data-voffset="['-168','-168','-168','-138']" 
-
-                            data-fontsize="['18','18','18','18']"
-                            data-fontweight="['400','400','400','400']"
-                            data-lineheight="['40','40','40','40']"
-                            data-width="none"
-                            data-height="none"
-                            data-whitespace="nowrap"
-                            data-color="['#FFFFFF','#FFFFFF','#FFFFFF','#FFFFFF']"
-
-                            data-type="text" 
-                            data-responsive_offset="on" 
-
-                            data-frames='[{"delay":1200,"speed":400,"frame":"0","from":"x:-50px;opacity:0;","to":"o:1;","ease":"power3.inOut"},{"delay":"wait","speed":300,"frame":"999","to":"auto:auto;","ease":"power3.inOut"}]'
-
-                            data-textAlign="['center','center','center','center']"
-                            data-paddingtop="['0','0','0','0']"
-                            data-paddingright="['21','21','21','21']"
-                            data-paddingbottom="['0','0','0','0']"
-                            data-paddingleft="['21','21','21','21']"
-                            data-marginleft="['0','0','0','0']"
-
-                            style="background-color: #a4cc0c; letter-spacing: 1px;border-radius: 5px;"
-                            >Innovación sostenible</div>
+                        
                         <div class="tp-caption ws_nowrap heebo"
                             data-x="['left','left','center','center']" 
                             data-hoffset="['0','0','0','0']" 
@@ -210,7 +154,7 @@
                             Simbio Perú es una empresa peruana dedicada a la innovación
                             en tecnologías microbianas que generan valor en la agricultura.
                             <br>
-                            Forma parte de Grupo alimenta y de Grupo La Calera, contando
+                            Forma parte de Grupo Alimenta y de Grupo La Calera, contando
                             con amplia experiencia en agricultura en el Perú.
                         </p>
                         <div class="hr"></div>
@@ -218,17 +162,13 @@
                             <div class="col-lg-12 col-xl-6">
                                 <div class="iconBox01">
                                     <i class="laf-F4W0Q01"></i>
-                                    <h3>
-                                    Investigación y desarrollo
-                                    </h3>
+                                    <h3>Investigación y desarrollo</h3>
                                 </div>
                             </div>
                             <div class="col-lg-12 col-xl-6">
                                 <div class="iconBox01 ib01Last">
                                     <i class="laf-lHEkBa01"></i>
-                                    <h3>
-                                    Soluciones sostenibles
-                                    </h3>
+                                    <h3>Soluciones sostenibles</h3>
                                 </div>
                             </div>
                         </div>

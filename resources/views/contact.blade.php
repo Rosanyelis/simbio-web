@@ -6,7 +6,7 @@
                 <div class="row">
                     <div class="col-md-9 col-lg-7 col-xl-6">
                         <div class="pageBannerContent">
-                            <div class="ship">Contacto</div>
+                            
                             <h2>Hablemos de lo que <br> necesita tu campo</h2>
                         </div>
                     </div>
