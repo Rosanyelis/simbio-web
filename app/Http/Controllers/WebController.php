@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Line;
 use App\Models\Product;
+use App\Models\Bussines;
 use App\Models\Category;
 use App\Models\WorkTeam;
 use App\Models\SuccessStory;
@@ -17,13 +18,15 @@ class WebController extends Controller
     public function index()
     {
         $equipo = WorkTeam::all();
-        return view('welcome', compact('equipo'));
+        $empresas = Bussines::first();
+        return view('welcome', compact('equipo', 'empresas'));
     }
 
     public function about()
     {
         $equipo = WorkTeam::all();
-        return view('about', compact('equipo'));
+        $empresas = Bussines::first();
+        return view('about', compact('equipo', 'empresas'));
     }
 
     public function products()
@@ -31,8 +34,8 @@ class WebController extends Controller
         $categories = Category::all();
         $lines = Line::all();
         $products = Product::with('category', 'line')->paginate(9);
-
-        return view('products', compact('categories', 'lines', 'products'));
+        $empresas = Bussines::first();
+        return view('products', compact('categories', 'lines', 'products', 'empresas'));
     }
 
     public function productoByCategory($categoryId)
@@ -40,8 +43,8 @@ class WebController extends Controller
         $products = Product::where('category_id', $categoryId)->paginate(9);
         $categories = Category::all();
         $lines = Line::all();
-
-        return view('products', compact('products', 'categories', 'lines'));
+        $empresas = Bussines::first();
+        return view('products', compact('products', 'categories', 'lines', 'empresas'));
     }
 
     public function productoByLine(Request $request)
@@ -61,8 +64,8 @@ class WebController extends Controller
         $products = Product::where('line_id', $lineId)->paginate(9);
         $categories = Category::all();
         $lines = Line::all();
-
-        return view('products', compact('products', 'categories', 'lines'));
+        $empresas = Bussines::first();
+        return view('products', compact('products', 'categories', 'lines', 'empresas'));
     }
 
     public function searchName(Request $request)
@@ -79,8 +82,8 @@ class WebController extends Controller
                             ->paginate(9);
         $categories = Category::all();
         $lines = Line::all();
-
-        return view('products', compact('products', 'categories', 'lines'));
+        $empresas = Bussines::first();
+        return view('products', compact('products', 'categories', 'lines', 'empresas'));
     }
 
     public function productModal($productId)
@@ -142,19 +145,22 @@ class WebController extends Controller
         
         $categories = Category::all();
         $lines = Line::all();
-        return view('show-product', compact('product', 'relatedProducts', 'categories', 'lines'));
+        $empresas = Bussines::first();
+        return view('show-product', compact('product', 'relatedProducts', 'categories', 'lines', 'empresas'));
     }
 
 
     public function tecnology()
     {
         $successStories = SuccessStory::all();
-        return view('tecnology', compact('successStories'));
+        $empresas = Bussines::first();
+        return view('tecnology', compact('successStories', 'empresas'));
     }
 
     public function contact()
     {
-        return view('contact');
+        $empresas = Bussines::first();
+        return view('contact', compact('empresas'));
     }
 
     public function send(Request $request)
@@ -180,6 +186,7 @@ class WebController extends Controller
 
     public function privacyPolicy()
     {
-        return view('terms');
+        $empresas = Bussines::first();
+        return view('terms', compact('empresas'));
     }
 }

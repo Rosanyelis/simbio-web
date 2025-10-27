@@ -10,15 +10,15 @@
                             </div>
                             <div class="cwcInfo">
                                 <i class="laf-y4LP01"></i>
-                                +51 987 654 321
+                                {{ $empresas->phone }}
                             </div>
                             <div class="cwcInfo">
                                 <i class="laf-BqBcxz01"></i>
-                                <a href="javascript:void(0);">info@simbio.com.pe</a>
+                                <a href="javascript:void(0);">{{ $empresas->email }}</a>
                             </div>
                             <div class="cwcInfo">
                                 <i class="laf-A8AIr201"></i>
-                                Av. Primavera pac. 293 lote 6 sector Arrabales, Subtanjalla, Ica, Perú.
+                                {{ $empresas->address }}
                             </div>
                         </div>
                     </aside>
@@ -43,9 +43,18 @@
                         <h3 class="widgetTitle">Síguenos en nuestras redes sociales</h3>
 
                         <div class="siteSocial justify-content-center align-items-center">
-                            <a href="https://pe.linkedin.com/company/simbioperu"><i class="fa fa-linkedin fa-2x"></i></a>    
-                            <a href="https://www.facebook.com/simbioperu"><i class="fa fa-facebook-square fa-2x"></i></a>
-                            <a href="https://www.instagram.com/simbio.peru/"><i class="fa fa-instagram fa-2x"></i></a>
+                            @foreach ($empresas->bussinesSocials as $social)
+                                @if ($social->name == 'linkedin')
+                                    <a href="{{ $social->url }}" target="_blank"><i class="fa fa-linkedin fa-2x"></i></a>
+                                @elseif ($social->name == 'facebook')
+                                    <a href="{{ $social->url }}" target="_blank"><i class="fa fa-facebook-square fa-2x"></i></a>
+                                @elseif ($social->name == 'instagram')
+                                    <a href="{{ $social->url }}" target="_blank"><i class="fa fa-instagram fa-2x"></i></a>
+                                @else
+                                    <a href="{{ $social->url }}" target="_blank"><i class="fa fa-{{ $social->name }} fa-2x"></i></a>
+                                @endif
+                            @endforeach
+                            <!--  -->
                         </div>
 
                         

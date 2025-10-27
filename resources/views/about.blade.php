@@ -26,20 +26,11 @@
                     <h2 class="secTitle">
                         Sobre SIMBIO
                     </h2>
-                    <p>
-                        Simbio Perú es una empresa peruana dedicada
-                        a la innovación en tecnologías microbianas que
-                        generan valor en la agricultura.
-                        <br>
-                        <br>
-                        Forma parte de Grupo alimenta y de Grupo La
-                        Calera, contando con amplia experiencia en
-                        agricultura en el Perú.
-                    </p>
+                    {!! $empresas->history !!}
 
                 </div>
             </div>
-            <div class="col-lg-6">
+            <div class="col-lg-6 align-self-center">
                 <div class="imgDiv2 text-right">
                     <img src="{{ asset('web/images/2.Nosotros/2.SobreSimbio.png') }}"
                         alt="Labflox">
@@ -137,7 +128,7 @@
         <br>
         <div class="row mt-5 justify-content-center">
             @foreach ($equipo as $item)
-            <div class="col-md-4 col-lg-3">
+            <div class="col-md-4 col-lg-4">
                 <div class="singleTeam" style="cursor:pointer;" onclick="showTeamModal({{ $item->id }})">
                     @if ($item->url_image)
                         <img src="{{ asset('storage/'.$item->url_image) }}" alt="{{ $item->name }}" />

@@ -6,15 +6,15 @@
                 <div class="contact-info-responsive">
                     <div class="contact-info-item">
                         <i class="fa fa-map-marker"></i>
-                        <span>Av. Primavera pac. 293 lote 6 sector Arrabales, Subtanjalla, Ica, Perú.</span>
+                        <span>{{ $empresas->address }}</span>
                     </div>
                     <div class="contact-info-item">
                         <i class="fa fa-envelope"></i>
-                        <span>info@simbio.com.pe</span>
+                        <span>{{ $empresas->email }}</span>
                     </div>
                     <div class="contact-info-item">
                         <i class="fa fa-phone"></i>
-                        <span>+51 987 654 321</span>
+                        <span>{{ $empresas->phone }}</span>
                     </div>
                 </div>
             </div>
