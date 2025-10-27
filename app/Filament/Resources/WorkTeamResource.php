@@ -27,12 +27,6 @@ class WorkTeamResource extends Resource
             ->schema([
                 Forms\Components\Section::make('Información del Miembro')
                     ->schema([
-                        Forms\Components\Select::make('bussine_id')
-                            ->label('Empresa')
-                            ->relationship('bussine', 'name')
-                            ->required()
-                            ->searchable()
-                            ->preload(),
                         Forms\Components\TextInput::make('name')
                             ->label('Nombre')
                             ->required()

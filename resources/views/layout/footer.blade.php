@@ -40,7 +40,7 @@
                             </span>
                             Envíanos un mensaje
                         </a>
-                        <h3 class="widgetTitle">Siguenos en nuestras redes sociales</h3>
+                        <h3 class="widgetTitle">Síguenos en nuestras redes sociales</h3>
 
                         <div class="siteSocial justify-content-center align-items-center">
                             <a href="https://pe.linkedin.com/company/simbioperu"><i class="fa fa-linkedin fa-2x"></i></a>    

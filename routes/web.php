@@ -11,6 +11,7 @@ Route::get('/productos/linea', [WebController::class, 'productoByLine'])->name('
 Route::get('/productos/buscar', [WebController::class, 'searchName'])->name('products.search');
 Route::get('/productos/{productId}', [WebController::class, 'productDetail'])->name('products.detail');
 Route::get('/productos/modal/{productId}', [WebController::class, 'productModal'])->name('products.modal');
+Route::get('/equipo/modal/{teamId}', [WebController::class, 'teamModal'])->name('team.modal');
 Route::get('/tecnologia', [WebController::class, 'tecnology'])->name('tecnology');
 Route::get('/contacto', [WebController::class, 'contact'])->name('contact');
 Route::post('/contacto/enviar', [WebController::class, 'send'])->name('contact.send');

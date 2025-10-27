@@ -328,44 +328,22 @@
             <h5 class="secSubTitle heebo text-center">Nuestro Equipo</h5>
             <h3 class="secTitle text-center">Conoce a nuestro equipo</h3>
             <br>
-            <div class="row mt-5">
-                <div class="col-md-4 col-lg-3">
-                    <div class="singleTeam">
-                        <img src="{{ asset('web/images/team/1.png') }}" alt="Harny Mirinda"/>
+            <div class="row mt-5 justify-content-center">
+                @foreach ($equipo as $item)
+                <div class="col-md-3 col-lg-4">
+                    <div class="singleTeam" style="cursor:pointer;" onclick="showTeamModal({{ $item->id }})">
+                        @if ($item->url_image)
+                            <img src="{{ asset('storage/'.$item->url_image) }}" alt="{{ $item->name }}"/>
+                        @else
+                            <img src="{{ asset('web/images/team/1.png') }}" alt="{{ $item->name }}"/>
+                        @endif
                         <div class="stContent">
-                            <h3><a href="javascript:void(0);">Pascal Ascencio</a></h3>
-                            <p>CEO</p>
+                            <h3><a href="javascript:void(0);">{{ $item->name }}</a></h3>
+                            <p>{{ $item->position }}</p>
                         </div>
                     </div>
                 </div>
-                <div class="col-md-4 col-lg-3">
-                    <div class="singleTeam">
-                        <img src="{{ asset('web/images/team/2.png') }}" alt="Harny Mirinda"/>
-                        <div class="stContent">
-                            <h3><a href="javascript:void(0);">Jessica Pérez</a></h3>
-                            <p>Administración y Finanzas</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4 col-lg-3">
-                    <div class="singleTeam">
-                        <img src="{{ asset('web/images/team/3.png') }}" alt="Harny Mirinda"/>
-                        <div class="stContent">
-                            <h3><a href="javascript:void(0);">Pilar Echáiz</a></h3>
-                            <p>I+D+I</p>
-                        </div>
-                        
-                    </div>
-                </div>
-                <div class="col-md-4 col-lg-3">
-                    <div class="singleTeam">
-                        <img src="{{ asset('web/images/team/4.png') }}" alt="Harny Mirinda"/>
-                        <div class="stContent">
-                            <h3><a href="javascript:void(0);">Xiomara Pacheco</a></h3>
-                            <p>SIG</p>
-                        </div>
-                    </div>
-                </div>
+                @endforeach
                 
             </div>
         </div>
@@ -382,11 +360,71 @@
                         <p class="text-center">Cuéntanos más sobre tu campo y qué desafíos enfrentas
                             con tu cultivo. Nuestro equipo técnico te orientará con la
                             mejor solución según tus necesidades</p>
-                        <a href="{{ route('contact') }}" class="lab_btn_2 darkHover text-center">Contactanos</a>
+                        <a href="{{ route('contact') }}" class="lab_btn_2 darkHover text-center">Contáctanos</a>
                     </div>
                 </div>
             </div>
         </div>
     </section>
     <!-- CTA Section End -->
+
+    @include('modal-team')
+@endsection
+
+@section('scripts')
+<script>
+function showTeamModal(teamId) {
+    if (!teamId) {
+        alert('No se encontró el ID del miembro del equipo.');
+        return;
+    }
+    
+    $.ajax({
+        url: '/equipo/modal/' + teamId,
+        method: 'GET',
+        dataType: 'json',
+        success: function(data) { 
+            $('#team-modal-name').text(data.name || '');
+            $('#team-modal-position').text(data.position || '');
+            
+            // Imagen
+            if (data.url_image) {
+                $('#team-modal-img').attr('src', data.url_image);
+            } else {
+                $('#team-modal-img').attr('src', '{{ asset('web/images/team/1.png') }}');
+            }
+            
+            // Función
+            if (data.function) {
+                $('#team-modal-function').text(data.function);
+                $('#team-modal-function-section').show();
+            } else {
+                $('#team-modal-function-section').hide();
+            }
+            
+            // Reseña
+            if (data.review) {
+                $('#team-modal-review').text(data.review);
+                $('#team-modal-review-section').show();
+            } else {
+                $('#team-modal-review-section').hide();
+            }
+            
+            // Proyectos
+            if (data.projects) {
+                $('#team-modal-projects').text(data.projects);
+                $('#team-modal-projects-section').show();
+            } else {
+                $('#team-modal-projects-section').hide();
+            }
+            
+            var modal = new bootstrap.Modal(document.getElementById('modalTeam'));
+            modal.show();
+        },
+        error: function() {
+            alert('No se pudo cargar el detalle del miembro del equipo.');
+        }
+    });
+}
+</script>
 @endsection

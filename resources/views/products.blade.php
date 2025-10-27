@@ -109,7 +109,7 @@
                             <p class="text-center">Cuéntanos más sobre tu campo y qué desafíos enfrentas
                                 con tu cultivo. Nuestro equipo técnico te orientará con la
                                 mejor solución según tus necesidades</p>
-                            <a href="javascript:void(0);" class="lab_btn_2 darkHover text-center">Contactanos</a>
+                            <a href="javascript:void(0);" class="lab_btn_2 darkHover text-center">Contáctanos</a>
                         </div>
                     </div>
                 </div>

@@ -53,9 +53,22 @@ class BussinesResource extends Resource
                             ->image()
                             ->directory('bussines')
                             ->maxSize(2048),
-                        Forms\Components\Textarea::make('history')
+                        Forms\Components\RichEditor::make('history')
                             ->label('Historia')
-                            ->rows(5)
+                            ->toolbarButtons([
+                                'bold',
+                                'italic',
+                                'underline',
+                                'strike',
+                                'link',
+                                'heading',
+                                'bulletList',
+                                'orderedList',
+                                'blockquote',
+                                'codeBlock',
+                                'undo',
+                                'redo',
+                            ])
                             ->columnSpanFull(),
                     ]),
 

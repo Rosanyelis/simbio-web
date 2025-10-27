@@ -8,18 +8,21 @@ use App\Models\Category;
 use Illuminate\Http\Request;
 use App\Models\RelatedProduct;
 use Illuminate\Support\Facades\Mail;
+use App\Models\WorkTeam;
 
 class WebController extends Controller
 {
     
     public function index()
     {
-        return view('welcome');
+        $equipo = WorkTeam::all();
+        return view('welcome', compact('equipo'));
     }
 
     public function about()
     {
-        return view('about');
+        $equipo = WorkTeam::all();
+        return view('about', compact('equipo'));
     }
 
     public function products()
@@ -96,12 +99,46 @@ class WebController extends Controller
         }
     }
 
+    public function teamModal($teamId)
+    {
+        try {
+            $teamMember = WorkTeam::findOrFail($teamId);
+
+            return response()->json([
+                'id' => $teamMember->id,
+                'name' => $teamMember->name,
+                'position' => $teamMember->position,
+                'function' => $teamMember->function,
+                'review' => $teamMember->review,
+                'projects' => $teamMember->projects,
+                'url_image' => $teamMember->url_image ? asset('storage/' . $teamMember->url_image) : null,
+            ]);
+        } catch (\Exception $e) {
+            return response()->json(['error' => 'Team member not found'], 404);
+        }
+    }
+
     public function productDetail($productId)
     {
         $product = Product::with('category', 'line', 'additionalInformationProducts')->findOrFail($productId);
-        $relatedProducts = RelatedProduct::where('product_id', $productId)
+        
+        // Obtener los productos relacionados configurados
+        $relatedProductsConfig = RelatedProduct::where('product_id', $productId)
+                                  ->with('relatedProduct.line')
+                                  ->get();
+        
+        // Extraer las líneas de los productos relacionados configurados
+        $lineIds = $relatedProductsConfig->map(function($relatedProduct) {
+            return $relatedProduct->relatedProduct->line_id ?? null;
+        })->filter()->unique()->values();
+        
+        // Obtener productos que pertenecen a esas líneas (excluyendo el producto actual)
+        $relatedProducts = Product::with('category', 'line')
+                                  ->whereIn('line_id', $lineIds)
+                                  ->where('id', '!=', $productId)
                                   ->take(4)
                                   ->get();
+        
         $categories = Category::all();
         $lines = Line::all();
         return view('show-product', compact('product', 'relatedProducts', 'categories', 'lines'));

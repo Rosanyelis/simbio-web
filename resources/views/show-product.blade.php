@@ -121,10 +121,10 @@
                                 </div>
                                 @foreach($relatedProducts as $related)
                                 <div class="col-6 col-md-4 col-lg-3 mb-2 text-center">
-                                    <a href="{{ route('products.detail', $related->product->id) }}">
-                                        <img src="{{ asset('storage/' . $related->product->url_image) }}" alt="{{ $related->name }}" style="width:100%;max-width:290px;">
-                                        <p>{{ $related->product->line->name }}</p>
-                                        <h6 style="font-size:14px;font-weight:bold;text-align:center">{{ $related->product->name }}</h6>
+                                    <a href="{{ route('products.detail', $related->id) }}">
+                                        <img src="{{ asset('storage/' . $related->url_image) }}" alt="{{ $related->name }}" style="width:100%;max-width:290px;">
+                                        <p>{{ $related->line->name }}</p>
+                                        <h6 style="font-size:14px;font-weight:bold;text-align:center">{{ $related->name }}</h6>
                                     </a>
                                 </div>
                                 @endforeach
@@ -149,7 +149,7 @@
                             <p class="text-center">Cuéntanos más sobre tu campo y qué desafíos enfrentas
                                 con tu cultivo. Nuestro equipo técnico te orientará con la
                                 mejor solución según tus necesidades</p>
-                            <a href="javascript:void(0);" class="lab_btn_2 darkHover text-center">Contactanos</a>
+                            <a href="javascript:void(0);" class="lab_btn_2 darkHover text-center">Contáctanos</a>
                         </div>
                     </div>
                 </div>
