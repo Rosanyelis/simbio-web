@@ -12,7 +12,7 @@
                         <i class="fa fa-envelope"></i>
                         <span>{{ $empresas->email }}</span>
                     </div>
-                    <div class="contact-info-item">
+                    <div class="contact-info-item text-white">
                         <i class="fa fa-phone"></i>
                         <span>{{ $empresas->phone }}</span>
                     </div>
