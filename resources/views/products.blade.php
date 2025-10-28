@@ -83,17 +83,8 @@
                         </div>
 
                         <!-- paginador -->
-                        {{ $products->links() }}
-                        <!-- <div class="d-flex justify-content-center mt-4">
-                            <nav aria-label="Page navigation">
-                                <ul class="pagination custom-pagination">
-                                    <li class="page-item active"><a class="page-link" href="#">1</a></li>
-                                    <li class="page-item"><a class="page-link" href="#">2</a></li>
-                                    <li class="page-item next-arrow"><a class="page-link" href="#"><span style="font-size:22px;">&#8594;</span></a></li>
-                                </ul>
-                            </nav>
-                        </div> -->
-                        <!-- fin paginador -->
+                        {{ $products->links('vendor.pagination.custom') }}
+                       
                     </div>
                 </div>
             </div>
